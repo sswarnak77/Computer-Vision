@@ -102,7 +102,7 @@ if __name__ == '__main__':
     matches = bf.match(des1, des2)
     matches = sorted(matches, key=lambda x: x.distance)
 
-    img3 = cv2.drawMatches(gray1, kp1, gray2, kp2, matches[:100], None, flags=2)
+    img3 = cv2.drawMatches(gray1, kp1, gray2, kp2, matches, None, flags=2)
     cv2.imwrite("MatchedImg1.png", img3)
 
     plt.imshow(img3), plt.show()
