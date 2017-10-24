@@ -3,7 +3,6 @@ import numpy as np
 from matplotlib import pyplot as plt
 import matplotlib.pylab as pyp
 
-hCons=0.04
 
 #5,1000000,5,5
 
@@ -126,6 +125,7 @@ if __name__ == '__main__':
     sigmaY = int(input("Enter VarianceY for Gaussian : "))
     window_size = int(input("Enter Window Size : "))
     threshold = int(input("Enter Threshold for Corner Detection : "))
+    hCons = int(input("Enter Harris Constant for Corner Detection : "))
 
     image1 = cv2.imread('chair1.jpg')
     image2 = cv2.imread('chair2.jpg')
