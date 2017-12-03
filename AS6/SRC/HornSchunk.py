@@ -93,11 +93,19 @@ if __name__ == '__main__':
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         gray = cv2.GaussianBlur(gray, (9, 9), 2)
         flow = 5 * Horn_Schunk(prevgray, gray, 50, 5)
+
         print "Optical Floew Vector:",flow
 
         prevgray = gray
 
-        cv2.imshow('flow', draw_optical_flow(gray, flow))
+        cv2.imshow('withoutFlow',img)
+
+        ch = 0xFF & cv2.waitKey(1)
+
+        if ch==ord('P'):
+
+            cv2.imshow('flow', draw_optical_flow(gray, flow))
+            cv2.waitKey(1)
 
         if show_hsv:
             cv2.imshow('flow HSV', draw_hsv(flow))
@@ -105,9 +113,9 @@ if __name__ == '__main__':
             cur_glitch = warp_optical_flow(cur_glitch, flow)
             cv2.imshow('glitch', cur_glitch)
 
-        ch = 0xFF & cv2.waitKey(1)
 
-        if ch == 'P':
+
+        if ch ==ord('q'):
             break
 
         if ch == ord('1'):
