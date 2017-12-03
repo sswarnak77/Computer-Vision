@@ -107,8 +107,9 @@ if __name__ == '__main__':
 
         ch = 0xFF & cv2.waitKey(1)
 
-        if ch == 'q':
+        if ch == 'P':
             break
+
         if ch == ord('1'):
 
             show_hsv = not show_hsv
